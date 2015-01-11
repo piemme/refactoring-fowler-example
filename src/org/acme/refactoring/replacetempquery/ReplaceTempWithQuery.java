@@ -3,7 +3,7 @@ package org.acme.refactoring.replacetempquery;
 /**
  * Martin Fowler, "Refactoring", ch. 6 Composing Methods
  * Replace Temp With Query
- * Versione 0.2, final modifiers
+ * Versione 0.x, estrazione logica price
  */
 public class ReplaceTempWithQuery {
 	
@@ -11,7 +11,7 @@ public class ReplaceTempWithQuery {
 	private int _itemPrice = 500;
 
 	public double getPrice() {
-		final int basePrice = _quantity * _itemPrice;
+		final int basePrice = basePrice();
 		final double discountFactor;
 		if (basePrice > 1000) {
 			discountFactor = 0.95;
@@ -19,6 +19,10 @@ public class ReplaceTempWithQuery {
 			discountFactor = 0.98;
 		}
 		return basePrice * discountFactor;
+	}
+
+	private int basePrice() {
+		return _quantity * _itemPrice;
 	}
 	
 
