@@ -3,7 +3,7 @@ package org.acme.refactoring.replacetempquery;
 /**
  * Martin Fowler, "Refactoring", ch. 6 Composing Methods
  * Replace Temp With Query
- * Versione 0.x, estrazione di discountFactor
+ * Versione 0.x, rimozione temp discountFactor
  */
 public class ReplaceTempWithQuery {
 	
@@ -11,8 +11,7 @@ public class ReplaceTempWithQuery {
 	private int _itemPrice = 500;
 
 	public double getPrice() {
-		final double discountFactor = discountFactor();
-		return basePrice() * discountFactor;
+		return basePrice() * discountFactor();
 	}
 
 	private double discountFactor() {
